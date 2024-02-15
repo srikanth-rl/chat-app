@@ -1,0 +1,334 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+.formContainer {
+    background-color: #a7bcff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .formWrapper {
+        background-color: white;
+        padding: 20px 60px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        .logo {
+            color: #5d5b8d;
+            font-weight: bolder;
+            font-size: 24px;
+            cursor: no-drop;
+            &:hover {
+                color: black;
+                font-weight: bold;
+            }
+        }
+        .title {
+            cursor: no-drop;
+            color: #5d5b8d;
+            font-size: 20px;
+            &:hover {
+                color: black;
+                font-weight: bold;
+            }
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            input {
+                padding: 15px;
+                font-size: large;
+                border: none;
+                width: 250px;
+                border-bottom: 1px solid #a7bcff;
+                &::placeholder {
+                    color: rgb(175, 175, 175);
+                }
+            }
+            button {
+                background-color: #7b96ec;
+                padding: 10px;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                font-size: medium;
+                cursor: pointer;
+                &:hover {
+                    background-color: #3e3c61;
+                    color: white;
+                    font-size: larger;
+                    border-radius: 15px;
+                    font-style: oblique;
+                }
+            }
+            label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 13px;
+                cursor: pointer;
+                img {
+                    width: 32px;
+                }
+            }
+        }
+        p {
+            padding: px;
+            color: #5d5b8d;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.home {
+    background-color: #a7bcff;
+    height: 105vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    .container {
+        border: 1px solid white;
+        border-radius: 15px;
+        width: 68%;
+        height: 85%;
+        display: flex;
+        overflow: hidden;
+        @include tablet {
+            width: 90%;
+        }
+        .sidebar {
+            flex: 5;
+            background-color: #3e3c61;
+            position: relative;
+            .navbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                height: 50px;
+                background-color: #2f2d52;
+                color: #ddddf7;
+                .logo {
+                    font-weight: bold;
+                    @include tablet {
+                        display: none;
+                    }
+                }
+                .user {
+                    display: flex;
+                    gap: 10px;
+                }
+                img {
+                    background-color: #ddddf7;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                button {
+                    background-color: #5d5b8d;
+                    color: #ddddf7;
+                    font-size: 15px;
+                    font-weight: bold;
+                    border: none;
+                    padding: 5px 5px;
+                    border-color: black;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    position: relative;
+                    @include tablet {
+                        bottom: 10px;
+                    }
+                    &:hover {
+                        border-color: green;
+                        color: red;
+                    }
+                }
+            }
+            .search,
+            .chats {
+                .searchForm {
+                    border-bottom: 1px solid grey;
+                    input {
+                        background-color: transparent;
+                        border: none;
+                        color: white;
+                        outline: none;
+                        &::placeholder {
+                            color: lightgray;
+                        }
+                    }
+                }
+                .userChat {
+                    border-bottom: 1px solid grey;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: white;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #2f2d52;
+                    }
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                    }
+                    .userChatInfo {
+                        span {
+                            font-size: 18px;
+                            font-weight: 500;
+                        }
+                        p {
+                            font-size: 14px;
+                            color: lightgrey;
+                        }
+                    }
+                }
+            }
+        }
+        .chat {
+            flex: 13;
+            .chatInfo {
+                height: 50px;
+                background-color: #5d5b8d;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 30px;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                padding: 10px 15px;
+                color: lightgray;
+                .chatIcons {
+                    display: flex;
+                    gap: 20px;
+                    img {
+                        height: 45px;
+                        width: 45px;
+                        cursor: all-scroll;
+                    }
+                }
+            }
+            .messages {
+                background-color: #ddddf7;
+                padding: 10px;
+                height: calc(100% - 155px);
+                font-size: 15px;
+                overflow-x: hidden;
+                &::-webkit-scrollbar {
+                    width: 0;
+                }
+                .message {
+                    display: flex;
+                    margin-bottom: 5px;
+                    gap: 20px;
+                    .messageInfo {
+                        flex-direction: column;
+                        display: flex;
+                        color: gray;
+                        font-weight: 300;
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+                    .messageContent {
+                        max-width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        p {
+                            background-color: white;
+                            padding: 10px 20px;
+                            border-radius: 0px 10px 10px 10px;
+                            max-width: max-content;
+                            font-size: 22px;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            // font-weight: bold;
+                        }
+                        img {
+                            width: 300px;
+                            height: 300px;
+                        }
+                    }
+                    &.owner {
+                        flex-direction: row-reverse;
+                        .messageContent {
+                            align-items: flex-end;
+                            p {
+                                align-items: flex-end;
+                                background-color: #8da4f1;
+                                color: white;
+                                border-radius: 10px 0px 10px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+            .input {
+                height: 45px;
+                background-color: white;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                input {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    color: #2f2d52;
+                    font-size: 18px;
+                }
+                &::placeholder {
+                    color: lightgrey;
+                }
+                .send {
+                    display: flex;
+                    align-items: center;
+                    gap: 7px;
+                }
+                img {
+                    width: 40px;
+                    height: 45px;
+                    cursor: pointer;
+                }
+                button {
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    background-color: #8da4f1;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 20px;
+                    &:hover {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}
