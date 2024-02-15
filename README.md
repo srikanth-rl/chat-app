@@ -11,6 +11,9 @@
 - Online status indicator: The app displays an indicator to show when users are online, facilitating real-time communication awareness.
 
 ## Installation
-1. Clone the repository:
+1.Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/chat-app.git
+   git clone https://github.com/srikanth-rl/chat-app.git
+```
+2.Deployed site:
+   https://srikanth-chat-app.netlify.app/
